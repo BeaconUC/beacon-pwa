@@ -1,0 +1,326 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Material Design 3 Color Tokens */
+    --md-ref-palette-primary-0: #000000;
+    --md-ref-palette-primary-10: #001b3c;
+    --md-ref-palette-primary-20: #003062;
+    --md-ref-palette-primary-30: #00468a;
+    --md-ref-palette-primary-40: #005db4;
+    --md-ref-palette-primary-50: #1b76d2;
+    --md-ref-palette-primary-60: #3e91f0;
+    --md-ref-palette-primary-70: #5eacff;
+    --md-ref-palette-primary-80: #9ac8ff;
+    --md-ref-palette-primary-90: #d4e3ff;
+    --md-ref-palette-primary-95: #ecf1ff;
+    --md-ref-palette-primary-99: #fefbff;
+    --md-ref-palette-primary-100: #ffffff;
+
+    --md-ref-palette-secondary-0: #000000;
+    --md-ref-palette-secondary-10: #0d1b2a;
+    --md-ref-palette-secondary-20: #223548;
+    --md-ref-palette-secondary-30: #394b61;
+    --md-ref-palette-secondary-40: #50667a;
+    --md-ref-palette-secondary-50: #687f95;
+    --md-ref-palette-secondary-60: #8299af;
+    --md-ref-palette-secondary-70: #9cb3ca;
+    --md-ref-palette-secondary-80: #b7cee6;
+    --md-ref-palette-secondary-90: #d3e4ff;
+    --md-ref-palette-secondary-95: #ecf1ff;
+    --md-ref-palette-secondary-99: #fefbff;
+    --md-ref-palette-secondary-100: #ffffff;
+
+    --md-ref-palette-tertiary-0: #000000;
+    --md-ref-palette-tertiary-10: #2c0e00;
+    --md-ref-palette-tertiary-20: #482100;
+    --md-ref-palette-tertiary-30: #653500;
+    --md-ref-palette-tertiary-40: #834800;
+    --md-ref-palette-tertiary-50: #a25e00;
+    --md-ref-palette-tertiary-60: #c27700;
+    --md-ref-palette-tertiary-70: #e29100;
+    --md-ref-palette-tertiary-80: #ffb95d;
+    --md-ref-palette-tertiary-90: #ffddb6;
+    --md-ref-palette-tertiary-95: #ffeedd;
+    --md-ref-palette-tertiary-99: #fffbff;
+    --md-ref-palette-tertiary-100: #ffffff;
+
+    --md-ref-palette-error-0: #000000;
+    --md-ref-palette-error-10: #410002;
+    --md-ref-palette-error-20: #690005;
+    --md-ref-palette-error-30: #93000a;
+    --md-ref-palette-error-40: #ba1a1a;
+    --md-ref-palette-error-50: #de3730;
+    --md-ref-palette-error-60: #ff5449;
+    --md-ref-palette-error-70: #ff897d;
+    --md-ref-palette-error-80: #ffb4ab;
+    --md-ref-palette-error-90: #ffdad6;
+    --md-ref-palette-error-95: #ffedea;
+    --md-ref-palette-error-99: #fffbff;
+    --md-ref-palette-error-100: #ffffff;
+
+    --md-ref-palette-neutral-0: #000000;
+    --md-ref-palette-neutral-10: #1a1c1e;
+    --md-ref-palette-neutral-20: #2f3033;
+    --md-ref-palette-neutral-30: #45474a;
+    --md-ref-palette-neutral-40: #5d5e61;
+    --md-ref-palette-neutral-50: #76777a;
+    --md-ref-palette-neutral-60: #909094;
+    --md-ref-palette-neutral-70: #aaabae;
+    --md-ref-palette-neutral-80: #c6c6c9;
+    --md-ref-palette-neutral-90: #e2e2e5;
+    --md-ref-palette-neutral-95: #f1f0f4;
+    --md-ref-palette-neutral-99: #fefbff;
+    --md-ref-palette-neutral-100: #ffffff;
+
+    --md-ref-palette-neutral-variant-0: #000000;
+    --md-ref-palette-neutral-variant-10: #1a1c22;
+    --md-ref-palette-neutral-variant-20: #2f3038;
+    --md-ref-palette-neutral-variant-30: #46474f;
+    --md-ref-palette-neutral-variant-40: #5e5e67;
+    --md-ref-palette-neutral-variant-50: #777780;
+    --md-ref-palette-neutral-variant-60: #919099;
+    --md-ref-palette-neutral-variant-70: #ababb4;
+    --md-ref-palette-neutral-variant-80: #c7c6d0;
+    --md-ref-palette-neutral-variant-90: #e3e2ec;
+    --md-ref-palette-neutral-variant-95: #f2f0fa;
+    --md-ref-palette-neutral-variant-99: #fefbff;
+    --md-ref-palette-neutral-variant-100: #ffffff;
+
+    /* Semantic Colors */
+    --md-sys-color-primary: var(--md-ref-palette-primary-40);
+    --md-sys-color-on-primary: var(--md-ref-palette-primary-100);
+    --md-sys-color-primary-container: var(--md-ref-palette-primary-90);
+    --md-sys-color-on-primary-container: var(--md-ref-palette-primary-10);
+    --md-sys-color-secondary: var(--md-ref-palette-secondary-40);
+    --md-sys-color-on-secondary: var(--md-ref-palette-secondary-100);
+    --md-sys-color-secondary-container: var(--md-ref-palette-secondary-90);
+    --md-sys-color-on-secondary-container: var(--md-ref-palette-secondary-10);
+    --md-sys-color-tertiary: var(--md-ref-palette-tertiary-40);
+    --md-sys-color-on-tertiary: var(--md-ref-palette-tertiary-100);
+    --md-sys-color-tertiary-container: var(--md-ref-palette-tertiary-90);
+    --md-sys-color-on-tertiary-container: var(--md-ref-palette-tertiary-10);
+    --md-sys-color-error: var(--md-ref-palette-error-40);
+    --md-sys-color-on-error: var(--md-ref-palette-error-100);
+    --md-sys-color-error-container: var(--md-ref-palette-error-90);
+    --md-sys-color-on-error-container: var(--md-ref-palette-error-10);
+    --md-sys-color-background: var(--md-ref-palette-neutral-99);
+    --md-sys-color-on-background: var(--md-ref-palette-neutral-10);
+    --md-sys-color-surface: var(--md-ref-palette-neutral-99);
+    --md-sys-color-on-surface: var(--md-ref-palette-neutral-10);
+    --md-sys-color-surface-variant: var(--md-ref-palette-neutral-variant-90);
+    --md-sys-color-on-surface-variant: var(--md-ref-palette-neutral-variant-30);
+    --md-sys-color-outline: var(--md-ref-palette-neutral-variant-50);
+    --md-sys-color-outline-variant: var(--md-ref-palette-neutral-variant-80);
+    --md-sys-color-shadow: var(--md-ref-palette-neutral-0);
+    --md-sys-color-surface-tint: var(--md-ref-palette-primary-40);
+    --md-sys-color-inverse-surface: var(--md-ref-palette-neutral-20);
+    --md-sys-color-inverse-on-surface: var(--md-ref-palette-neutral-95);
+    --md-sys-color-inverse-primary: var(--md-ref-palette-primary-80);
+
+    /* Elevation */
+    --md-sys-elevation-level-0: 0px 0px 0px 0px rgba(0,0,0,0.2);
+    --md-sys-elevation-level-1: 0px 1px 3px 1px rgba(0,0,0,0.15), 0px 1px 2px 0px rgba(0,0,0,0.3);
+    --md-sys-elevation-level-2: 0px 2px 6px 2px rgba(0,0,0,0.15), 0px 1px 2px 0px rgba(0,0,0,0.3);
+    --md-sys-elevation-level-3: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px 0px rgba(0,0,0,0.3);
+    --md-sys-elevation-level-4: 0px 6px 10px 4px rgba(0,0,0,0.15), 0px 2px 3px 0px rgba(0,0,0,0.3);
+    --md-sys-elevation-level-5: 0px 8px 12px 6px rgba(0,0,0,0.15), 0px 4px 4px 0px rgba(0,0,0,0.3);
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--md-sys-color-outline-variant));
+  }
+  
+  body {
+    background-color: hsl(var(--md-sys-color-background));
+    color: hsl(var(--md-sys-color-on-background));
+    font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  /* MD3 Typography Scale */
+  h1 {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.75rem; /* 44px */
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  h2 {
+    font-size: 1.75rem; /* 28px */
+    line-height: 2.25rem; /* 36px */
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  h3 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  h4 {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 500;
+    letter-spacing: 0.15px;
+  }
+
+  h5 {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+    font-weight: 500;
+    letter-spacing: 0.1px;
+  }
+
+  h6 {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    font-weight: 500;
+    letter-spacing: 0.1px;
+  }
+
+  .body-large {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+
+  .body-medium {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+  }
+
+  .body-small {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+  }
+
+  .label-large {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+  }
+
+  .label-medium {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .label-small {
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Material Design 3 Card Styles */
+.md3-card {
+  background-color: hsl(var(--md-sys-color-surface));
+  border-radius: 12px;
+  box-shadow: var(--md-sys-elevation-level-1);
+  border: 1px solid hsl(var(--md-sys-color-outline-variant));
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md3-card:hover {
+  box-shadow: var(--md-sys-elevation-level-2);
+  transform: translateY(-1px);
+}
+
+.md3-card-filled {
+  background-color: hsl(var(--md-sys-color-surface-variant));
+  border-radius: 12px;
+  border: none;
+}
+
+/* Material Design 3 Button Styles */
+.md3-button {
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.1px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: none;
+}
+
+.md3-button-contained {
+  background-color: hsl(var(--md-sys-color-primary));
+  color: hsl(var(--md-sys-color-on-primary));
+  box-shadow: var(--md-sys-elevation-level-1);
+}
+
+.md3-button-contained:hover {
+  background-color: hsl(var(--md-sys-color-primary));
+  filter: brightness(1.08);
+  box-shadow: var(--md-sys-elevation-level-2);
+}
+
+.md3-button-outlined {
+  background-color: transparent;
+  color: hsl(var(--md-sys-color-primary));
+  border: 1px solid hsl(var(--md-sys-color-outline));
+}
+
+.md3-button-outlined:hover {
+  background-color: hsl(var(--md-sys-color-primary) / 0.08);
+}
+
+/* Utility classes for MD3 colors */
+.text-primary { color: hsl(var(--md-sys-color-primary)); }
+.text-on-primary { color: hsl(var(--md-sys-color-on-primary)); }
+.bg-primary { background-color: hsl(var(--md-sys-color-primary)); }
+.bg-on-primary { background-color: hsl(var(--md-sys-color-on-primary)); }
+
+.text-secondary { color: hsl(var(--md-sys-color-secondary)); }
+.text-on-secondary { color: hsl(var(--md-sys-color-on-secondary)); }
+.bg-secondary { background-color: hsl(var(--md-sys-color-secondary)); }
+.bg-on-secondary { background-color: hsl(var(--md-sys-color-on-secondary)); }
+
+.text-surface { color: hsl(var(--md-sys-color-surface)); }
+.text-on-surface { color: hsl(var(--md-sys-color-on-surface)); }
+.bg-surface { background-color: hsl(var(--md-sys-color-surface)); }
+.bg-on-surface { background-color: hsl(var(--md-sys-color-on-surface)); }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Custom scrollbar matching MD3 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--md-sys-color-surface-variant));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--md-sys-color-outline));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--md-sys-color-on-surface-variant));
+}
