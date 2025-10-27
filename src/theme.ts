@@ -4,7 +4,7 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   cssVariables: true,
   typography: {
-    fontFamily: 'var(--font-roboto)',
+    fontFamily: 'var(--font-inter)',
     h1: {
       fontSize: '2.5rem',
       fontWeight: 700,

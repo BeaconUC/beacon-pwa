@@ -4,20 +4,21 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import 'leaflet/dist/leaflet.css'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { Roboto } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import theme from '../theme';
+import React from "react";
 
-const roboto = Roboto({
+const inter = Inter({
     weight: ['300', '400', '500', '700'],
     subsets: ['latin'],
     display: 'swap',
-    variable: '--font-roboto',
+    variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
-  title: "Beacon - Smart Outage Manager",
+  title: "Beacon",
   description: "Efficient outage reporting and dispatch system with GIS maps and real-time analytics for utilities.",
   keywords: ["outage", "utility", "dispatch", "GIS", "real-time", "analytics"],
   authors: [{ name: "Beacon Team" }],
@@ -30,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={roboto.variable}>
+    <html lang="en" className={inter.variable}>
     <head>
         <meta name="apple-mobile-web-app-title" content="Beacon"/>
         <meta name="theme-color" content="#1976d2"/>
